@@ -10,5 +10,11 @@ This repository is the client (front-end) starter code for Final Project (CRUD A
 ```
 "start": "react-scripts start"
 ```
+to
+```
+"start": "react-scripts --openssl-legacy-provider start"
+```
 5.	Start the client application by entering the command: `npm start` 
 6.	After the client application is successfully started, a web browser is automatically opened at the address: `http://localhost:3000`
+
+Group Member: Qizong Liang, This is a solo project
