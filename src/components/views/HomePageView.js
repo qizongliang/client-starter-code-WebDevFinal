@@ -33,7 +33,7 @@ const HomePageView = () => {
         style={{ minHeight: '100vh', maxWidth: '100%' }}
       >
         <Grid item xs={6} align="center" spacing={30}>
-          <Link to={'/students'}>
+          <Link to={'/students'} style={{ textDecoration: 'none' }}>
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
@@ -56,7 +56,7 @@ const HomePageView = () => {
           </Link>
         </Grid>
         <Grid item xs={6} align="center">
-          <Link to={'/campuses'}>
+          <Link to={'/campuses'} style={{ textDecoration: 'none' }}>
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
