@@ -1,8 +1,3 @@
-/*==================================================
-EditStudentsView.js
-
-This view shows the layout of the edit form of the student
-================================================== */
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
@@ -34,14 +29,15 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const EditStudentView = (props) => {
-  const { handleChange, handleSubmit, studentInfo } = props // Destructure prop
-  const student = studentInfo.student // set the current student
+const EditCampusView = (props) => {
+  const { handleChange, handleSubmit, campusInfo } = props
+  const campus = campusInfo.campus
 
   const classes = useStyles()
+
   return (
     <>
-      <Typography variant="h3">Edit Student</Typography>
+      <Typography variant="h3">Edit Campus</Typography>
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
@@ -53,7 +49,7 @@ const EditStudentView = (props) => {
                 color: '#11153e',
               }}
             >
-              Edit Student
+              Edit Campus
             </Typography>
           </div>
           <form
@@ -61,27 +57,14 @@ const EditStudentView = (props) => {
             onSubmit={(e) => handleSubmit(e)}
           >
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
-              First Name:{' '}
+              Campus Name:{' '}
             </label>
+            <br />
             <input
               type="text"
-              name="firstname"
+              name="name"
               onChange={(e) => handleChange(e)}
-              defaultValue={student.firstname}
-              autoComplete="off"
-              required
-            ></input>
-            <br />
-            <br />
-
-            <label style={{ color: '#11153e', fontWeight: 'bold' }}>
-              Last Name:{' '}
-            </label>
-            <input
-              type="text"
-              name="lastname"
-              onChange={(e) => handleChange(e)}
-              defaultValue={student.lastname}
+              defaultValue={campus.name}
               autoComplete="off"
               required
             />
@@ -89,13 +72,31 @@ const EditStudentView = (props) => {
             <br />
 
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
-              CampusId:{' '}
+              Address:{' '}
             </label>
+            <br />
             <input
               type="text"
-              name="campusId"
+              name="address"
               onChange={(e) => handleChange(e)}
-              defaultValue={student.campusId}
+              defaultValue={campus.address}
+              autoComplete="off"
+              required
+            />
+            <br />
+            <br />
+
+            <label style={{ color: '#11153e', fontWeight: 'bold' }}>
+              Description:{' '}
+            </label>
+            <br />
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              cols="50"
+              onChange={(e) => handleChange(e)}
+              defaultValue={campus.name}
               autoComplete="off"
             />
             <br />
@@ -108,11 +109,11 @@ const EditStudentView = (props) => {
             <br />
           </form>
           <br />
-          <Link to={'/students'}>Back</Link>
+          <Link to={'/campuses'}>Back</Link>
         </div>
       </div>
     </>
   )
 }
 
-export default EditStudentView
+export default EditCampusView

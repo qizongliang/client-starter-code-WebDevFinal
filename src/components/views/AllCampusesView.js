@@ -10,6 +10,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import Button from '@mui/material/Button'
+import { Typography } from '@material-ui/core'
 
 const AllCampusesView = (props) => {
   // If there is no campus, display a message.
@@ -22,7 +23,7 @@ const AllCampusesView = (props) => {
   // If there is at least one campus, render All Campuses view
   return (
     <div>
-      <h1>All Campuses</h1>
+      <Typography variant="h3">All Campuses</Typography>
       <Grid container spacing={0} direction="column" alignItems="center">
         {allCampuses.map((campus) => (
           <>
@@ -42,12 +43,21 @@ const AllCampusesView = (props) => {
                   <h4>campus id: {campus.id}</h4>
                   <p>{campus.address}</p>
                   <p>{campus.description}</p>
-                  <Button
-                    variant="outlined"
-                    onClick={() => deleteCampus(campus.id)}
-                  >
-                    Remove
-                  </Button>
+                  <Grid container spacing={0}>
+                    <Grid item xs={6}>
+                      <Button
+                        variant="outlined"
+                        onClick={() => deleteCampus(campus.id)}
+                      >
+                        Remove
+                      </Button>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Link to={`/campus/${campus.id}/edit`}>
+                        <Button variant="outlined">Edit</Button>
+                      </Link>
+                    </Grid>
+                  </Grid>
                 </div>
               </Paper>
             </Box>
