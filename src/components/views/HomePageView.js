@@ -1,8 +1,6 @@
 import * as React from 'react'
-import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Unstable_Grid2'
 import Card from '@mui/material/Card'
-import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
