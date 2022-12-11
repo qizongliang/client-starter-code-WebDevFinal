@@ -1,3 +1,8 @@
+/*==================================================
+EditStudentsView.js
+
+This view shows the layout of the edit form of the student
+================================================== */
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
@@ -30,14 +35,14 @@ const useStyles = makeStyles(() => ({
 }))
 
 const EditStudentView = (props) => {
-  const { handleChange, handleSubmit, studentInfo } = props
-  const student = studentInfo.student
+  const { handleChange, handleSubmit, studentInfo } = props // Destructure prop
+  const student = studentInfo.student // set the current student
+  console.log(student)
 
-  console.log('view', student)
   const classes = useStyles()
   return (
     <>
-      <h1>Edit Student</h1>
+      <Typography variant="h3">Edit Student</Typography>
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
