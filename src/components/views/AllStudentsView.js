@@ -4,48 +4,72 @@ AllStudentsView.js
 The Views component is responsible for rendering web page with data provided by the corresponding Container component.
 It constructs a React component to display the all students view page.
 ================================================== */
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import Grid from '@mui/material/Unstable_Grid2'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import Button from '@mui/material/Button'
 
 const AllStudentsView = (props) => {
-  const {students, deleteStudent} = props;
+  const { students, deleteStudent } = props
   // If there is no student, display a message
   if (!students.length) {
     return (
-    <div>
-      <p>There are no students.</p>
-      <Link to={`newstudent`}>
-        <button>Add New Student</button>
-      </Link>
-    </div>
-    );
+      <div>
+        <p>There are no students.</p>
+        <Link to={`newstudent`}>
+          <button>Add New Student</button>
+        </Link>
+      </div>
+    )
   }
-  
-  // If there is at least one student, render All Students view 
+
+  // If there is at least one student, render All Students view
   return (
     <div>
       <h1>All Students</h1>
-
-      {students.map((student) => {
-          let name = student.firstname + " " + student.lastname;
+      <Grid container spacing={0} direction="column" alignItems="center">
+        {students.map((student) => {
+          let name = student.firstname + ' ' + student.lastname
           return (
-            <div key={student.id}>
-              <Link to={`/student/${student.id}`}>
-                <h2>{name}</h2>
-              </Link>
-              <button onClick={() => deleteStudent(student.id)}>Delete</button>
-              <hr/>
-            </div>
-          );
-        }
-      )}
-      <br/>
+            <>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  width: 350,
+                  justifyContent: 'center',
+                }}
+              >
+                <Paper elevation={3} sx={{ p: 2, mb: 2, mt: 2, width: 350 }}>
+                  <div key={student.id}>
+                    <Link to={`/student/${student.id}`}>
+                      <h2>{name}</h2>
+                    </Link>
+                    <Button
+                      variant="outlined"
+                      onClick={() => deleteStudent(student.id)}
+                    >
+                      Delete
+                    </Button>
+                    <Link to={`/student/${student.id}/edit`}>
+                      <Button variant="outlined">Edit</Button>
+                    </Link>
+                  </div>
+                </Paper>
+              </Box>
+            </>
+          )
+        })}
+      </Grid>
+      <br />
       <Link to={`/newstudent`}>
-        <button>Add New Student</button>
+        <Button variant="outlined">Add New Student</Button>
       </Link>
-      <br/><br/>
+      <br />
+      <br />
     </div>
-  );
-};
+  )
+}
 
-
-export default AllStudentsView;
+export default AllStudentsView
