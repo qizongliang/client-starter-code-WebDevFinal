@@ -9,6 +9,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 
 const AllStudentsView = (props) => {
   const { students, deleteStudent } = props
@@ -27,7 +28,7 @@ const AllStudentsView = (props) => {
   // If there is at least one student, render All Students view
   return (
     <div>
-      <h1>All Students</h1>
+      <Typography variant="h3">All Students</Typography>
       <Grid container spacing={0} direction="column" alignItems="center">
         {students.map((student) => {
           let name = student.firstname + ' ' + student.lastname
