@@ -1,14 +1,9 @@
-/*==================================================
-NewCampusView.js
-
-The Views component is responsible for rendering web page with data provided by the corresponding Container component.
-It constructs a React component to display the new campus page.
-================================================== */
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import { Link } from 'react-router-dom'
+
 import { makeStyles } from '@material-ui/core/styles'
 
-// Create styling for the input form
 const useStyles = makeStyles(() => ({
   formContainer: {
     width: '500px',
@@ -34,15 +29,15 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const NewCampusView = (props) => {
-  const { handleChange, handleSubmit } = props
+const EditStudentView = (props) => {
+  const { handleChange, handleSubmit, studentInfo } = props
+  const student = studentInfo.student
+
+  console.log('view', student)
   const classes = useStyles()
-
-  // Render a New Campus view with an input form
   return (
-    <div>
-      <h1>New Campus</h1>
-
+    <>
+      <h1>Edit Student</h1>
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
@@ -54,7 +49,7 @@ const NewCampusView = (props) => {
                 color: '#11153e',
               }}
             >
-              Add a Campus
+              Edit Student
             </Typography>
           </div>
           <form
@@ -62,36 +57,42 @@ const NewCampusView = (props) => {
             onSubmit={(e) => handleSubmit(e)}
           >
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
-              Name:{' '}
+              First Name:{' '}
             </label>
             <input
               type="text"
-              name="name"
-              required="required"
+              name="firstname"
               onChange={(e) => handleChange(e)}
+              defaultValue={student.firstname}
+              autoComplete="off"
+              required
+            ></input>
+            <br />
+            <br />
+
+            <label style={{ color: '#11153e', fontWeight: 'bold' }}>
+              Last Name:{' '}
+            </label>
+            <input
+              type="text"
+              name="lastname"
+              onChange={(e) => handleChange(e)}
+              defaultValue={student.lastname}
+              autoComplete="off"
+              required
             />
             <br />
             <br />
 
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
-              Address:{' '}
+              CampusId:{' '}
             </label>
             <input
               type="text"
-              name="address"
-              required="required"
+              name="campusId"
               onChange={(e) => handleChange(e)}
-            />
-            <br />
-            <br />
-
-            <label style={{ color: '#11153e', fontWeight: 'bold' }}>
-              Description:{' '}
-            </label>
-            <input
-              type="text"
-              name="description"
-              onChange={(e) => handleChange(e)}
+              defaultValue={student.campusId}
+              autoComplete="off"
             />
             <br />
             <br />
@@ -102,10 +103,12 @@ const NewCampusView = (props) => {
             <br />
             <br />
           </form>
+          <br />
+          <Link to={'/students'}>Back</Link>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
-export default NewCampusView
+export default EditStudentView
