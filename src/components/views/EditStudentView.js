@@ -37,6 +37,7 @@ const useStyles = makeStyles(() => ({
 const EditStudentView = (props) => {
   const { handleChange, handleSubmit, studentInfo } = props // Destructure prop
   const student = studentInfo.student // set the current student
+  console.log(student)
 
   const classes = useStyles()
   return (

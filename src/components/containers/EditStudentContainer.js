@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import EditStudentsView from '../views/EditStudentsView'
+import EditStudentView from '../views/EditStudentView'
 import { editStudentThunk, fetchStudentThunk } from '../../store/thunks'
 
 class EditStudentContainer extends Component {
@@ -62,7 +62,7 @@ class EditStudentContainer extends Component {
     return (
       <>
         <Header />
-        <EditStudentsView
+        <EditStudentView
           studentInfo={this.state}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
