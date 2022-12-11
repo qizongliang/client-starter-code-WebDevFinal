@@ -47,15 +47,21 @@ const AllStudentsView = (props) => {
                     <Link to={`/student/${student.id}`}>
                       <h2>{name}</h2>
                     </Link>
-                    <Button
-                      variant="outlined"
-                      onClick={() => deleteStudent(student.id)}
-                    >
-                      Delete
-                    </Button>
-                    <Link to={`/student/${student.id}/edit`}>
-                      <Button variant="outlined">Edit</Button>
-                    </Link>
+                    <Grid container spacing={0}>
+                      <Grid item xs={6}>
+                        <Button
+                          variant="outlined"
+                          onClick={() => deleteStudent(student.id)}
+                        >
+                          Delete
+                        </Button>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Link to={`/student/${student.id}/edit`}>
+                          <Button variant="outlined">Edit</Button>
+                        </Link>
+                      </Grid>
+                    </Grid>
                   </div>
                 </Paper>
               </Box>
