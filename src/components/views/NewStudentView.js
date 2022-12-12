@@ -66,6 +66,7 @@ const NewStudentView = (props) => {
             <input
               type="text"
               name="firstname"
+              required
               onChange={(e) => handleChange(e)}
             />
             <br />
@@ -77,6 +78,7 @@ const NewStudentView = (props) => {
             <input
               type="text"
               name="lastname"
+              required
               onChange={(e) => handleChange(e)}
             />
             <br />
@@ -87,6 +89,7 @@ const NewStudentView = (props) => {
             </label>
             <input
               type="text"
+              required
               name="campusId"
               onChange={(e) => handleChange(e)}
             />

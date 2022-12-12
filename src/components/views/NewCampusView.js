@@ -67,7 +67,7 @@ const NewCampusView = (props) => {
             <input
               type="text"
               name="name"
-              required="required"
+              required
               onChange={(e) => handleChange(e)}
             />
             <br />
@@ -79,7 +79,7 @@ const NewCampusView = (props) => {
             <input
               type="text"
               name="address"
-              required="required"
+              required
               onChange={(e) => handleChange(e)}
             />
             <br />
@@ -91,6 +91,7 @@ const NewCampusView = (props) => {
             <input
               type="text"
               name="description"
+              required
               onChange={(e) => handleChange(e)}
             />
             <br />

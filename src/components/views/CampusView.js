@@ -36,6 +36,7 @@ const CampusView = (props) => {
           <Typography variant="body2">{campus.description}</Typography>
         </Paper>
       </Box>
+      <Link to={'/campuses'}>Back</Link>
       <Typography variant="h4" align="center">
         Students
       </Typography>
