@@ -102,6 +102,18 @@ const EditCampusView = (props) => {
             />
             <br />
             <br />
+            <label style={{ color: '#11153e', fontWeight: 'bold' }}>
+              Image URL:{' '}
+            </label>
+            <input
+              type="text"
+              required
+              name="imageURL"
+              defaultValue={campus.imageURL}
+              onChange={(e) => handleChange(e)}
+            />
+            <br />
+            <br />
 
             <Button variant="contained" color="primary" type="submit">
               Submit
