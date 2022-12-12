@@ -98,6 +98,7 @@ const EditCampusView = (props) => {
               onChange={(e) => handleChange(e)}
               defaultValue={campus.name}
               autoComplete="off"
+              required
             />
             <br />
             <br />

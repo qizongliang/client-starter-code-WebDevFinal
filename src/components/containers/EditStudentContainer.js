@@ -36,14 +36,20 @@ class EditStudentContainer extends Component {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       campusId: this.state.campusId,
+      imageURL: this.state.imageURL,
+      gpa: this.state.gpa,
+      email: this.state.email,
       id: this.state.studentId,
     }
 
     let newStudent = await this.props.editStudent(student)
-
+    console.log(newStudent)
     this.setState({
       firstname: '',
       lastname: '',
+      imageURL: '',
+      gpa: '',
+      email: '',
       campusId: null,
       redirect: true,
       redirectId: this.state.studentId,
