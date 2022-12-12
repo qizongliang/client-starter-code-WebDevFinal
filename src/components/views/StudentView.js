@@ -4,13 +4,29 @@ StudentView.js
 The Views component is responsible for rendering web page with data provided by the corresponding Container component.
 It constructs a React component to display the single student view page.
 ================================================== */
-
+import * as React from 'react'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
+import Box from '@mui/material/Box'
+
 let displayCampus = (student) => {
   if (student.campus) {
-    return <h3>{'College: ' + student.campus.name}</h3>
+    return (
+      <>
+        <Typography gutterBottom variant="h6" component="div">
+          {'College: ' + student.campus.name}
+        </Typography>
+      </>
+    )
   } else {
-    return <h3>Not Enrolled in college</h3>
+    return (
+      <Typography gutterBottom variant="h6" component="div">
+        Not Enrolled in College
+      </Typography>
+    )
   }
 }
 const StudentView = (props) => {
@@ -18,19 +34,40 @@ const StudentView = (props) => {
 
   // Render a single Student view
   return (
-    <div>
-      <h1>{student.firstname + ' ' + student.lastname}</h1>
-      {displayCampus(student)}
-      <h3>{'GPA: ' + student.gpa}</h3>
-      <h3>{'Email: ' + student.email}</h3>
-      <img
-        src={student.imageURL}
-        alt="student images"
-        style={{ height: 185, width: 185 }}
-      />
-      <br />
-      <Link to={'/students'}>Back</Link>
-    </div>
+    <>
+      <Typography variant="h3">Student View</Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            component="img"
+            height="180"
+            image={student.imageURL}
+            alt="green iguana"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {student.firstname + ' ' + student.lastname}
+            </Typography>
+            {displayCampus(student)}
+            <Typography variant="body2" color="text.secondary">
+              {'GPA: ' + student.gpa}
+            </Typography>
+
+            <Typography variant="body2" color="text.secondary">
+              {'Email: ' + student.email}
+            </Typography>
+          </CardContent>
+          <Link to={'/students'}>Back</Link>
+        </Card>
+      </Box>
+    </>
   )
 }
 
