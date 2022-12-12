@@ -8,7 +8,7 @@ It constructs a React component to display the single student view page.
 import { Link } from 'react-router-dom'
 let displayCampus = (student) => {
   if (student.campus) {
-    return <h3>{student.campus.name}</h3>
+    return <h3>{'College: ' + student.campus.name}</h3>
   } else {
     return <h3>Not Enrolled in college</h3>
   }
@@ -21,6 +21,13 @@ const StudentView = (props) => {
     <div>
       <h1>{student.firstname + ' ' + student.lastname}</h1>
       {displayCampus(student)}
+      <h3>{'GPA: ' + student.gpa}</h3>
+      <h3>{'Email: ' + student.email}</h3>
+      <img
+        src={student.imageURL}
+        alt="student images"
+        style={{ height: 185, width: 185 }}
+      />
       <br />
       <Link to={'/students'}>Back</Link>
     </div>
