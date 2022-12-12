@@ -36,6 +36,7 @@ class EditCampusContainer extends Component {
       name: this.state.name,
       address: this.state.address,
       description: this.state.description,
+      imageURL: this.state.imageURL,
       id: this.state.campusId,
     }
 

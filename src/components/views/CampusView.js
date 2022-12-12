@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent'
 import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
+import CardMedia from '@mui/material/CardMedia'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import Typography from '@mui/material/Typography'
 
@@ -32,11 +33,18 @@ const CampusView = (props) => {
           <Typography variant="h2" align="center">
             {campus.name}
           </Typography>
+          <CardMedia
+            component="img"
+            height="180"
+            image={campus.imageURL}
+            alt="green iguana"
+          />
           <Typography variant="body2">{campus.address}</Typography>
           <Typography variant="body2">{campus.description}</Typography>
+          <Link to={'/campuses'}>Back</Link>
         </Paper>
       </Box>
-      <Link to={'/campuses'}>Back</Link>
+
       <Typography variant="h4" align="center">
         Students
       </Typography>
