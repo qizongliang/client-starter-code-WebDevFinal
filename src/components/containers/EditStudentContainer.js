@@ -40,7 +40,7 @@ class EditStudentContainer extends Component {
     }
 
     let newStudent = await this.props.editStudent(student)
-
+    console.log(newStudent)
     this.setState({
       firstname: '',
       lastname: '',
