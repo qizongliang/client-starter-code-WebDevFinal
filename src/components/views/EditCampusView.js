@@ -1,9 +1,15 @@
+/*==================================================
+EditCampusView.js
+
+This view shows the layout of the edit form of the campus
+================================================== */
+// libaries used
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
-
 import { makeStyles } from '@material-ui/core/styles'
 
+// style for the edit form
 const useStyles = makeStyles(() => ({
   formContainer: {
     width: '500px',
@@ -30,7 +36,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const EditCampusView = (props) => {
-  const { handleChange, handleSubmit, campusInfo } = props
+  const { handleChange, handleSubmit, campusInfo } = props //functions that handles the change sumbission and the stored data
   const campus = campusInfo.campus
 
   const classes = useStyles()
@@ -38,6 +44,7 @@ const EditCampusView = (props) => {
   return (
     <>
       <Typography variant="h3">Edit Campus</Typography>
+      {/* Edit campus form*/}
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
@@ -70,7 +77,6 @@ const EditCampusView = (props) => {
             />
             <br />
             <br />
-
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
               Address:{' '}
             </label>
@@ -85,7 +91,6 @@ const EditCampusView = (props) => {
             />
             <br />
             <br />
-
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
               Description:{' '}
             </label>
@@ -114,15 +119,15 @@ const EditCampusView = (props) => {
             />
             <br />
             <br />
-
             <Button variant="contained" color="primary" type="submit">
               Submit
-            </Button>
+            </Button>{' '}
+            {/*Submit the form*/}
             <br />
             <br />
           </form>
           <br />
-          <Link to={'/campuses'}>Back</Link>
+          <Link to={'/campuses'}>Back</Link> {/* Go back to the campuses*/}
         </div>
       </div>
     </>

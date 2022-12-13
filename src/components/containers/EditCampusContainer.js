@@ -1,3 +1,10 @@
+/*==================================================
+EditCampusContainer.js
+
+The Container component is responsible for stateful logic and data fetching, and
+passes data (if any) as props to the corresponding View component.
+If needed, it also defines the component's "connect" function.
+================================================== */
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -30,6 +37,7 @@ class EditCampusContainer extends Component {
     })
   }
 
+  // handle the submission
   handleSubmit = async (event) => {
     event.preventDefault()
     let campus = {
@@ -62,6 +70,7 @@ class EditCampusContainer extends Component {
     }
     return (
       <>
+        {/*Render the view of the Edit Campus*/}
         <Header />
         <EditCampusView
           campusInfo={this.state}
