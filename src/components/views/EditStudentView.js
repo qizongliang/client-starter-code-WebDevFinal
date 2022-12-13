@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
 
+// style for the lookup form
 const useStyles = makeStyles(() => ({
   formContainer: {
     width: '500px',
@@ -41,6 +42,7 @@ const EditStudentView = (props) => {
   const classes = useStyles()
   return (
     <>
+      {/* Edit student form */}
       <Typography variant="h3">Edit Student</Typography>
       <div className={classes.root}>
         <div className={classes.formContainer}>
@@ -73,7 +75,6 @@ const EditStudentView = (props) => {
             ></input>
             <br />
             <br />
-
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
               Last Name:{' '}
             </label>
@@ -87,7 +88,6 @@ const EditStudentView = (props) => {
             />
             <br />
             <br />
-
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>
               CampusId:{' '}
             </label>
@@ -137,15 +137,15 @@ const EditStudentView = (props) => {
             />
             <br />
             <br />
-
             <Button variant="contained" color="primary" type="submit">
               Submit
-            </Button>
+            </Button>{' '}
+            {/* Submit the form*/}
             <br />
             <br />
           </form>
           <br />
-          <Link to={'/students'}>Back</Link>
+          <Link to={'/students'}>Back</Link> {/*Go back to the student view */}
         </div>
       </div>
     </>

@@ -1,3 +1,9 @@
+/*==================================================
+HomePageView.js
+
+The Views component is responsible for rendering web page with data provided by the corresponding Container component.
+It constructs a React component to display the home page.
+================================================== */
 import * as React from 'react'
 import Grid from '@mui/material/Unstable_Grid2'
 import Card from '@mui/material/Card'
@@ -7,12 +13,7 @@ import Typography from '@mui/material/Typography'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
-/*==================================================
-HomePageView.js
 
-The Views component is responsible for rendering web page with data provided by the corresponding Container component.
-It constructs a React component to display the home page.
-================================================== */
 const useStyles = makeStyles({
   root: {
     maxWidth: '100%',
@@ -30,6 +31,7 @@ const HomePageView = () => {
         justify="center"
         style={{ minHeight: '100vh', maxWidth: '100%' }}
       >
+        {/* Two card of the homepage */}
         <Grid item xs={6} align="center" spacing={30}>
           <Link to={'/students'} style={{ textDecoration: 'none' }}>
             <Card className={classes.root}>
